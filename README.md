@@ -8,6 +8,7 @@ This repository is the **starting point for each student’s personal project** 
 
 ## Purpose & Audience
 
+eddedfdf
 - **For Students:** A personal repository to build a web project step by step, following lessons. It deploys live via GitHub Pages.
 - **For Professors:** A window into each student’s weekly progress, commit history, and final project.
 
