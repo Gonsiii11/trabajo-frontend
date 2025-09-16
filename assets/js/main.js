@@ -50,3 +50,31 @@ function updatePageMetadata(title, description) {
 		document.head.appendChild(metaDescription);
 	}
 }
+
+console.log("✅ main.js cargado correctamente");
+
+const test = document.getElementById('test');
+if (test) {
+	test.textContent = "Texto cambiado desde main.js"
+}
+
+const boton = document.getElementById('boton');
+if (boton) {
+	boton.addEventListener('click', () => {
+		alert('🚨 Boton pulsado correctamente');
+	});
+}
+
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+	if (header) {
+		if (window.scrollY > 100) {
+			header.style.backgroundColor = 'rgba(0,0,0,0.8)';
+			header.style.color = 'white';
+		} else {
+			header.style.backgroundColor = 'transparent'
+			header.style.color = 'inherit';
+		}
+	}
+})
