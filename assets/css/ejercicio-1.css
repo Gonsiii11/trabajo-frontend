@@ -1,6 +1,12 @@
-/* ===== PORTAFOLIO RESPONSIVE BÁSICO ===== */
+/* ===== BASIC RESPONSIVE PORTFOLIO (MOBILE-FIRST) ===== */
+/*
+ * MOBILE-FIRST STRATEGY:
+ * 1. Base styles are now mobile (small screens)
+ * 2. Media queries use min-width instead of max-width
+ * 3. Progressive enhancement - we add styles for larger screens
+ */
 
-/* Variables CSS básicas */
+/* Basic CSS variables */
 :root {
 	--primary-color: #2563eb;
 	--secondary-color: #64748b;
@@ -17,7 +23,7 @@
 	--shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Reset básico */
+/* Basic reset */
 * {
 	margin: 0;
 	padding: 0;
@@ -31,14 +37,14 @@ body {
 	background-color: var(--bg-color);
 }
 
-/* ===== CONTAINER BÁSICO ===== */
+/* ===== BASIC CONTAINER ===== */
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 var(--spacing-sm);
 }
 
-/* ===== HEADER RESPONSIVO ===== */
+/* ===== RESPONSIVE HEADER (Mobile-First: base styles for mobile) ===== */
 .site-header {
 	background: var(--primary-color);
 	color: white;
@@ -47,21 +53,21 @@ body {
 
 .site-header .container {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
+	flex-direction: column; /* Mobile: vertical navigation */
+	text-align: center;
 	gap: var(--spacing-sm);
 }
 
 .site-title {
-	font-size: 1.5rem;
+	font-size: 1.25rem; /* Mobile: smaller title */
 	font-weight: 700;
 }
 
 .main-nav ul {
 	display: flex;
+	flex-direction: column; /* Mobile: links stacked vertically */
 	list-style: none;
-	gap: var(--spacing-md);
+	gap: var(--spacing-sm);
 }
 
 .main-nav a {
@@ -76,10 +82,10 @@ body {
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ===== SECCIONES ===== */
+/* ===== SECTIONS ===== */
 .hero-section {
 	text-align: center;
-	padding: var(--spacing-xl) 0;
+	padding: var(--spacing-lg) 0; /* Mobile: reduced padding */
 	background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
 	color: white;
 	margin: var(--spacing-lg) 0;
@@ -87,7 +93,7 @@ body {
 }
 
 .hero-section h2 {
-	font-size: 2rem;
+	font-size: 1.25rem; /* Mobile: smaller text */
 	margin-bottom: var(--spacing-sm);
 }
 
@@ -103,22 +109,21 @@ body {
 
 .projects-section h2 {
 	text-align: center;
-	font-size: 1.75rem;
+	font-size: 1.5rem; /* Mobile: moderate size */
 	margin-bottom: var(--spacing-lg);
 }
 
-/* ===== GRID DE PROYECTOS CON FLEXBOX ===== */
+/* ===== PROJECTS GRID WITH FLEXBOX ===== */
 .projects-grid {
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column; /* Mobile: single column */
 	gap: var(--spacing-lg);
-	justify-content: center;
+	align-items: center;
 }
 
 .project-card {
-	flex: 1;
-	min-width: 300px;
-	max-width: 400px;
+	width: 100%; /* Mobile: full width */
+	max-width: 100%;
 	background: var(--white);
 	border-radius: var(--border-radius);
 	overflow: hidden;
@@ -167,7 +172,7 @@ body {
 	font-weight: 500;
 }
 
-/* ===== BOTÓN CTA ===== */
+/* ===== CTA BUTTON ===== */
 .cta-button {
 	background: var(--accent-color);
 	color: white;
@@ -183,10 +188,23 @@ body {
 	background: #d97706;
 }
 
-/* ===== MEDIA QUERIES ===== */
-/* Tablet: 2 columnas */
-@media (max-width: 768px) {
+/* ===== MEDIA QUERIES (Mobile-First: Progressive Enhancement) ===== */
+/*
+ * MOBILE-FIRST STRATEGY:
+ * - Base styles are for mobile (already defined above)
+ * - min-width adds styles for larger screens
+ * - Progressive enhancement - we improve the experience as the screen grows
+ */
+
+/* Tablet: 2-3 columns - 481px+ */
+@media (min-width: 481px) {
+	.site-title {
+		font-size: 1.5rem;
+	}
+
 	.projects-grid {
+		flex-direction: row; /* Tablet: multiple columns */
+		flex-wrap: wrap;
 		justify-content: center;
 	}
 
@@ -199,44 +217,49 @@ body {
 	.hero-section h2 {
 		font-size: 1.5rem;
 	}
+
+	.projects-section h2 {
+		font-size: 1.75rem;
+	}
 }
 
-/* Móvil: 1 columna */
-@media (max-width: 480px) {
+/* Desktop: Full horizontal layout - 769px+ */
+@media (min-width: 769px) {
 	.site-header .container {
-		flex-direction: column;
-		text-align: center;
+		flex-direction: row; /* Desktop: horizontal navigation */
+		justify-content: space-between;
+		align-items: center;
+		text-align: left;
 	}
 
 	.main-nav ul {
-		flex-direction: column;
-		gap: var(--spacing-sm);
+		flex-direction: row; /* Desktop: inline links */
+		gap: var(--spacing-md);
 	}
 
 	.site-title {
-		font-size: 1.25rem;
-	}
-
-	.projects-grid {
-		flex-direction: column;
-		align-items: center;
+		font-size: 1.5rem;
 	}
 
 	.project-card {
-		width: 100%;
-		max-width: 100%;
+		min-width: 300px;
+		max-width: 400px; /* Desktop: wider cards */
 	}
 
 	.hero-section {
-		padding: var(--spacing-lg) 0;
+		padding: var(--spacing-xl) 0; /* Desktop: more space */
 	}
 
 	.hero-section h2 {
-		font-size: 1.25rem;
+		font-size: 2rem; /* Desktop: larger titles */
+	}
+
+	.hero-section p {
+		font-size: 1.125rem;
 	}
 }
 
-/* ===== TIPOGRAFÍA BÁSICA ===== */
+/* ===== BASIC TYPOGRAPHY ===== */
 h1,
 h2,
 h3 {
@@ -275,7 +298,7 @@ img {
 	height: auto;
 }
 
-/* ===== UTILIDADES ===== */
+/* ===== UTILITIES ===== */
 .sr-only {
 	position: absolute;
 	width: 1px;

@@ -1,0 +1,154 @@
+
+html {
+	scroll-behavior: smooth;
+}
+
+body{
+	margin: 0;
+	position: relative;
+	width: 100vw;
+
+}
+
+header {
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+nav {
+
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background: #222;
+	display: flex;
+	justify-content: center;
+
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+nav ul li {
+	margin-right: 1rem;
+}
+nav ul li a {
+	text-decoration: none;
+	color: white;
+	z-index: 10000;	
+	float: left;
+	font-size: 3rem;
+	margin-top: 100px;
+	margin-right: 5vw;
+	
+	
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+	color: #007acc;
+	outline: none;
+	
+}
+.test{
+	display: flex;
+}
+section{
+	margin: 30px;
+}
+.cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	background: #222;
+	color: #fff;
+	margin: 0;
+	position: relative;
+}
+
+ .title {
+      font-size: 3rem;
+      text-transform: uppercase;
+      color: white;
+      border-right: 0.15em solid currentColor;
+      white-space: nowrap;
+      overflow: hidden;
+		margin: 10px;
+     
+      animation: typing 3s steps(30, end) forwards, 
+                 blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 35vw;
+      }
+    }
+
+    @keyframes blink-caret {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+.analysis-text {
+	columns: 1;
+	column-gap: 2rem;
+}
+@media (min-width: 800px) {
+	.analysis-text {
+		columns: 2;
+	}
+}
+
+.screenshots {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1rem;
+	margin: 20px;
+	
+}
+.screenshots img {
+	width: 100%;
+	height: auto;
+	border: 1px solid #ccc;
+}
+
+footer{
+	width: 100%;
+	height: 50px;
+	background-color: #333;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Fondo fijo animado */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}

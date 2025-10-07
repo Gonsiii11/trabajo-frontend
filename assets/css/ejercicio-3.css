@@ -1,7 +1,7 @@
-/* ===== PORTAFOLIO SPA CON SCROLL-SNAP ===== */
+/* ===== SPA PORTFOLIO WITH SCROLL-SNAP ===== */
 
 :root {
-	/* Colores */
+	/* Colors */
 	--primary: #3b82f6;
 	--secondary: #64748b;
 	--accent: #f59e0b;
@@ -10,14 +10,14 @@
 	--white: #ffffff;
 	--border: #e2e8f0;
 
-	/* Espaciado fluido */
+	/* Fluid spacing */
 	--space-xs: clamp(0.5rem, 1vw, 0.75rem);
 	--space-sm: clamp(1rem, 2vw, 1.5rem);
 	--space-md: clamp(1.5rem, 3vw, 2.5rem);
 	--space-lg: clamp(2rem, 4vw, 3.5rem);
 	--space-xl: clamp(3rem, 6vw, 5rem);
 
-	/* Tipografía fluida */
+	/* Fluid typography */
 	--text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
 	--text-sm: clamp(0.875rem, 2vw, 1rem);
 	--text-base: clamp(1rem, 2.5vw, 1.125rem);
@@ -27,21 +27,21 @@
 	--text-3xl: clamp(2rem, 6vw, 3rem);
 	--text-4xl: clamp(2.5rem, 8vw, 4rem);
 
-	/* Alturas de línea fluidas */
+	/* Fluid line heights */
 	--leading-tight: clamp(1.1, 1.2, 1.25);
 	--leading-normal: clamp(1.4, 1.5, 1.6);
 	--leading-relaxed: clamp(1.5, 1.6, 1.75);
 
-	/* Sombras */
+	/* Shadows */
 	--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 
-	/* Bordes */
+	/* Borders */
 	--radius: clamp(0.5rem, 1vw, 0.75rem);
 	--radius-lg: clamp(0.75rem, 1.5vw, 1rem);
 }
 
-/* Reset y base */
+/* Reset and base */
 * {
 	margin: 0;
 	padding: 0;
@@ -83,7 +83,7 @@ body {
 	width: 100%;
 }
 
-/* ===== NAVEGACIÓN SPA ===== */
+/* ===== SPA NAVIGATION ===== */
 .main-nav {
 	position: fixed;
 	top: 0;
@@ -121,7 +121,7 @@ body {
 	color: var(--white);
 }
 
-/* ===== SECCIONES ===== */
+/* ===== SECTION STYLES ===== */
 .home-section {
 	background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
 	color: var(--white);
@@ -138,11 +138,11 @@ body {
 }
 
 .contact-section {
-	background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+	background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
 	color: var(--white);
 }
 
-/* ===== HERO CON IMAGEN DE FONDO ===== */
+/* ===== HERO WITH BACKGROUND IMAGE ===== */
 .hero-background {
 	position: absolute;
 	top: 0;
@@ -190,29 +190,31 @@ body {
 	margin-bottom: var(--space-xl);
 }
 
-/* ===== GRID INTRÍNSECO CON SUBGRID ===== */
+/* ===== ADVANCED GRID SYSTEM ===== */
 .projects-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: var(--space-lg);
 }
 
-/* ===== SUBGRID PARA ALINEACIÓN PERFECTA ===== */
+/* ===== SUBGRID FOR PERFECT ALIGNMENT ===== */
 .project-card {
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-column: span 1;
-	/* Fallback para navegadores sin soporte de subgrid */
+
+	/* Fallback for browsers without subgrid support */
 	@supports not (grid-template-columns: subgrid) {
 		display: flex;
 		flex-direction: column;
 	}
 }
 
-/* Aplicar subgrid solo cuando está soportado */
+/* Apply subgrid only when supported */
 @supports (grid-template-columns: subgrid) {
 	.projects-grid {
-		grid-template-rows: auto auto 1fr auto auto; /* Imagen, overlay, título, descripción, tags */
+		grid-template-rows: auto auto 1fr auto auto;
+		/* Image, overlay, title, description, tags */
 	}
 
 	.project-card {
@@ -266,7 +268,7 @@ body {
 	}
 }
 
-/* ===== TARJETAS DE PROYECTO ===== */
+/* ===== PROJECT CARD IMAGES ===== */
 .project-card {
 	background: var(--white);
 	border-radius: var(--radius-lg);
@@ -296,6 +298,7 @@ body {
 	transform: scale(1.05);
 }
 
+/* ===== IMAGE OVERLAY EFFECTS ===== */
 .project-overlay {
 	position: absolute;
 	top: 0;
@@ -329,6 +332,7 @@ body {
 	color: var(--text);
 }
 
+/* ===== PROJECT INFO STYLES ===== */
 .project-info {
 	padding: var(--space-md);
 }
@@ -347,7 +351,7 @@ body {
 	line-height: var(--leading-normal);
 }
 
-/* ===== TAGS ===== */
+/* ===== ENHANCED TAG SYSTEM ===== */
 .project-tags {
 	display: flex;
 	flex-wrap: wrap;
@@ -363,7 +367,7 @@ body {
 	font-weight: 500;
 }
 
-/* ===== BOTONES ===== */
+/* ===== BUTTON COMPONENTS ===== */
 .cta-button,
 .submit-button {
 	background: var(--accent);
@@ -385,26 +389,7 @@ body {
 	transform: translateY(-2px);
 }
 
-/* ===== RESPONSIVE IMAGES ===== */
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-/* ===== UTILIDADES ===== */
-.sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border: 0;
-}
-
-/* Hero con imagen de fondo responsive */
+/* ===== HERO WITH RESPONSIVE BACKGROUND ===== */
 .hero-section {
 	position: relative;
 	min-height: 100dvh;
@@ -430,74 +415,11 @@ img {
 	object-position: center;
 }
 
-.hero-content {
-	text-align: center;
-	color: white;
-	z-index: 1;
-	background: rgba(0, 0, 0, 0.4);
-	padding: var(--spacing-xl);
-	border-radius: var(--border-radius);
-	backdrop-filter: blur(10px);
-}
-
-/* ===== CONTAINER DE IMÁGENES DE PROYECTOS ===== */
-.project-image-container {
-	position: relative;
-	overflow: hidden;
-	border-radius: var(--border-radius) var(--border-radius) 0 0;
-}
-
-.project-image {
-	width: 100%;
-	height: 200px;
-	object-fit: cover;
-	object-position: center;
-	transition: transform 0.3s ease;
-}
-
-.project-card:hover .project-image {
-	transform: scale(1.05);
-}
-
-/* Overlay con efecto hover */
-.project-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.7);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	opacity: 0;
-	transition: opacity 0.3s ease;
-}
-
-.project-card:hover .project-overlay {
-	opacity: 1;
-}
-
-.project-link {
-	color: white;
-	text-decoration: none;
-	padding: var(--spacing-sm) var(--spacing-lg);
-	border: 2px solid white;
-	border-radius: var(--border-radius);
-	font-weight: 600;
-	transition: all 0.3s ease;
-}
-
-.project-link:hover {
-	background: white;
-	color: var(--text-color);
-}
-
-/* ===== IMAGEN DE PERFIL RESPONSIVE ===== */
+/* ===== PROFILE IMAGE RESPONSIVE ===== */
 .about-content {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: var(--spacing-xl);
+	gap: var(--space-xl);
 	align-items: center;
 }
 
@@ -518,32 +440,13 @@ img {
 	transform: scale(1.05);
 }
 
-/* ===== CONTAINER QUERIES PARA IMÁGENES ===== */
-@container section-container (max-width: 600px) {
-	.about-content {
-		grid-template-columns: 1fr;
-		text-align: center;
-	}
-
-	.project-image-container {
-		height: 150px;
-	}
-
-	.project-image {
-		height: 150px;
-	}
-
-	.hero-content {
-		padding: var(--spacing-lg);
-	}
-}
-
-/* ===== RESPONSIVE IMAGES CON ASPECT RATIO ===== */
+/* ===== RESPONSIVE IMAGES WITH ASPECT RATIO ===== */
 .aspect-ratio-container {
 	position: relative;
 	width: 100%;
 	height: 0;
-	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	padding-bottom: 56.25%;
+	/* 16:9 aspect ratio */
 	overflow: hidden;
 }
 
@@ -556,11 +459,11 @@ img {
 	object-fit: cover;
 }
 
-/* ===== IMÁGENES CON DIFERENTES DENSIDADES ===== */
+/* ===== HIGH DPI IMAGES ===== */
 .high-dpi-image {
 	width: 100%;
 	height: auto;
-	/* Para pantallas de alta densidad */
+	/* For high density screens */
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: crisp-edges;
 }
@@ -577,7 +480,7 @@ img {
 	height: auto;
 }
 
-/* ===== LAZY LOADING PARA IMÁGENES ===== */
+/* ===== LAZY LOADING UTILITIES ===== */
 .lazy-image {
 	opacity: 0;
 	transition: opacity 0.3s ease;
@@ -587,24 +490,55 @@ img {
 	opacity: 1;
 }
 
-/* ===== MEDIA QUERIES ESPECÍFICAS PARA IMÁGENES ===== */
-@media (max-width: 768px) {
-	.hero-bg-image {
-		object-position: center top;
+/* ===== IMAGE PLACEHOLDER UTILITIES ===== */
+.image-placeholder {
+	background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg,
+			#f0f0f0 25%,
+			transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+	background-size: 20px 20px;
+	background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.image-loading {
+	background: var(--bg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--secondary);
+}
+
+/* ===== CONTAINER QUERIES FOR IMAGES ===== */
+@container section-container (max-width: 600px) {
+	.about-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	.project-image-container {
+		height: 150px;
 	}
 
 	.project-image {
-		height: 180px;
+		height: 150px;
 	}
 
-	.profile-image {
-		max-width: 250px;
+	.hero-content {
+		padding: var(--space-lg);
 	}
 }
 
-@media (max-width: 480px) {
+/* ===== MEDIA QUERIES FOR IMAGES (Mobile-First: Progressive Enhancement) ===== */
+/*
+ * MOBILE-FIRST STRATEGY:
+ * - Base styles are for mobile (already defined above)
+ * - min-width adds styles for larger screens
+ * - Progressive enhancement - we improve the experience as the screen grows
+ */
+
+/* Tablet: 481px+ */
+@media (min-width: 481px) {
 	.hero-content {
-		padding: var(--spacing-md);
+		padding: var(--space-md);
 	}
 
 	.project-image {
@@ -616,21 +550,41 @@ img {
 	}
 }
 
-/* ===== UTILIDADES PARA IMÁGENES ===== */
-.image-placeholder {
-	background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(
-			-45deg,
-			#f0f0f0 25%,
-			transparent 25%
-		), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
-	background-size: 20px 20px;
-	background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+/* Small desktop: 769px+ */
+@media (min-width: 769px) {
+	.hero-bg-image {
+		object-position: center;
+	}
+
+	.project-image {
+		height: 180px;
+	}
+
+	.profile-image {
+		max-width: 250px;
+	}
+
+	.hero-content {
+		padding: var(--space-lg);
+	}
 }
 
-.image-loading {
-	background: var(--bg-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: var(--secondary-color);
+/* Large desktop: 1024px+ */
+@media (min-width: 1024px) {
+	.project-image {
+		height: 200px;
+	}
+
+	.profile-image {
+		max-width: 300px;
+	}
+
+
+	.project-image {
+		height: 160px;
+	}
+
+	.profile-image {
+		max-width: 200px;
+	}
 }

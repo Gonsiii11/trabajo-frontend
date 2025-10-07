@@ -1,36 +1,42 @@
-/* ===== PORTAFOLIO RESPONSIVE CON TÉCNICAS MODERNAS ===== */
+/* ===== RESPONSIVE PORTFOLIO WITH MODERN TECHNIQUES ===== */
 
 :root {
 	--primary-color: #3b82f6;
 	--secondary-color: #64748b;
 	--accent-color: #f59e0b;
 	--text-color: #1e293b;
-	--bg-color: #f8fafc;
 	--card-bg: #ffffff;
+	--bg-color: #f8fafc;
+	--white: #ffffff;
 	--border-color: #e2e8f0;
-	--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-	--border-radius: 0.75rem;
-	--spacing-xs: 0.5rem;
-	--spacing-sm: 1rem;
-	--spacing-md: 1.5rem;
-	--spacing-lg: 2rem;
-	--spacing-xl: 3rem;
+
+	/* Fluid spacing */
+	--spacing-xs: clamp(0.5rem, 1vw, 0.75rem);
+	--spacing-sm: clamp(1rem, 2vw, 1.5rem);
+	--spacing-md: clamp(1.5rem, 3vw, 2.5rem);
+	--spacing-lg: clamp(2rem, 4vw, 3.5rem);
+	--spacing-xl: clamp(3rem, 6vw, 5rem);
+
+	/* Fluid typography */
+	--text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+	--text-sm: clamp(0.875rem, 2vw, 1rem);
+	--text-base: clamp(1rem, 2.5vw, 1.125rem);
+	--text-lg: clamp(1.125rem, 3vw, 1.25rem);
+	--text-xl: clamp(1.25rem, 4vw, 1.5rem);
+	--text-2xl: clamp(1.5rem, 5vw, 2rem);
+	--text-3xl: clamp(2rem, 6vw, 3rem);
+	--text-4xl: clamp(2.5rem, 8vw, 4rem);
+
+	/* Shadows */
+	--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+	/* Border radius */
+	--border-radius: clamp(0.5rem, 1vw, 0.75rem);
+	--border-radius-lg: clamp(0.75rem, 1.5vw, 1rem);
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	font-family: system-ui, -apple-system, sans-serif;
-	line-height: 1.6;
-	color: var(--text-color);
-	background-color: var(--bg-color);
-}
-
+/* ===== ENHANCED CONTAINER SYSTEM ===== */
 .container {
 	container-type: inline-size;
 	container-name: portfolio-container;
@@ -39,10 +45,10 @@ body {
 	padding: 0 var(--spacing-md);
 }
 
-/* ===== HEADER ===== */
+/* ===== ENHANCED HEADER ===== */
 .portfolio-header {
 	background: var(--primary-color);
-	color: white;
+	color: var(--white);
 	padding: var(--spacing-lg) 0;
 	position: sticky;
 	top: 0;
@@ -59,10 +65,11 @@ body {
 }
 
 .portfolio-title {
-	font-size: clamp(1.5rem, 4vw, 2.5rem);
+	font-size: var(--text-4xl);
 	font-weight: 700;
 }
 
+/* ===== ENHANCED NAVIGATION ===== */
 .portfolio-nav {
 	display: flex;
 	gap: var(--spacing-lg);
@@ -70,7 +77,7 @@ body {
 }
 
 .portfolio-nav a {
-	color: white;
+	color: var(--white);
 	text-decoration: none;
 	padding: var(--spacing-xs) var(--spacing-sm);
 	border-radius: var(--border-radius);
@@ -82,7 +89,7 @@ body {
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ===== GRID RESPONSIVO CON AUTO-FIT Y SUBGRID ===== */
+/* ===== CSS GRID SYSTEM WITH AUTO-FIT ===== */
 .projects-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -90,22 +97,22 @@ body {
 	margin: var(--spacing-xl) 0;
 }
 
-/* ===== SUBGRID PARA ALINEACIÓN PERFECTA ===== */
+/* ===== SUBGRID IMPLEMENTATION ===== */
 .project-card {
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-column: span 1;
-	/* Fallback para navegadores sin soporte de subgrid */
+	/* Fallback for browsers without subgrid support */
 	@supports not (grid-template-columns: subgrid) {
 		display: flex;
 		flex-direction: column;
 	}
 }
 
-/* Aplicar subgrid solo cuando está soportado */
+/* Apply subgrid only when supported */
 @supports (grid-template-columns: subgrid) {
 	.projects-grid {
-		grid-template-rows: auto auto 1fr auto; /* Título, imagen, descripción, tags */
+		grid-template-rows: auto auto 1fr auto; /* Title, image, description, tags */
 	}
 
 	.project-card {
@@ -135,7 +142,7 @@ body {
 }
 
 /* ===== CONTAINER QUERIES ===== */
-/* Cuando el contenedor es estrecho, cambia el layout de las tarjetas */
+/* When the container is narrow, change the card layout */
 @container portfolio-container (max-width: 600px) {
 	.project-card {
 		display: flex;
@@ -156,7 +163,7 @@ body {
 	}
 }
 
-/* ===== TARJETAS DE PROYECTO ===== */
+/* ===== ENHANCED PROJECT CARD ===== */
 .project-card {
 	background: var(--card-bg);
 	border-radius: var(--border-radius);
@@ -186,7 +193,7 @@ body {
 }
 
 .project-content h3 {
-	font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+	font-size: var(--text-xl);
 	font-weight: 600;
 	margin-bottom: var(--spacing-sm);
 	color: var(--text-color);
@@ -195,10 +202,10 @@ body {
 .project-content p {
 	color: var(--secondary-color);
 	margin-bottom: var(--spacing-md);
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
-/* ===== TAGS ===== */
+/* ===== ENHANCED TAG SYSTEM ===== */
 .project-tags {
 	display: flex;
 	flex-wrap: wrap;
@@ -207,14 +214,14 @@ body {
 
 .tag {
 	background: var(--primary-color);
-	color: white;
+	color: var(--white);
 	padding: var(--spacing-xs) var(--spacing-sm);
 	border-radius: 9999px;
-	font-size: 0.75rem;
+	font-size: var(--text-xs);
 	font-weight: 500;
 }
 
-/* ===== TIPOGRAFÍA FLUIDA ===== */
+/* ===== ENHANCED TYPOGRAPHY ===== */
 h1,
 h2,
 h3 {
@@ -223,13 +230,13 @@ h3 {
 }
 
 h2 {
-	font-size: clamp(1.5rem, 4vw, 2.25rem);
+	font-size: var(--text-3xl);
 	text-align: center;
 	margin: var(--spacing-xl) 0;
 	color: var(--text-color);
 }
 
-/* ===== FOOTER ===== */
+/* ===== ENHANCED FOOTER ===== */
 .portfolio-footer {
 	background: var(--secondary-color);
 	color: white;
@@ -244,7 +251,7 @@ img {
 	height: auto;
 }
 
-/* ===== UTILIDADES ===== */
+/* ===== UTILITIES ===== */
 .sr-only {
 	position: absolute;
 	width: 1px;
